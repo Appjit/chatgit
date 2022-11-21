@@ -3,6 +3,8 @@ import Login from "../views/Login.vue";
 import friendList from "../views/friendList.vue";
 import chatList from "../views/chatList.vue";
 
+import TestView from "../views/TestView.vue";
+
 const routes = [
   {
     path: "",
@@ -18,6 +20,12 @@ const routes = [
     path: "/chatList",
     name: "chatList",
     component: chatList,
+  },
+  // =========== 테스트 뷰 =============
+  {
+    path: "/TestView",
+    name: "TestView",
+    component: TestView,
   },
 ];
 
