@@ -1,82 +1,29 @@
 <template>
-<div class="BackGround">
-<div class="login-page">
-  <div class="form">
-    <form class="login-form">
-      <h1><b>로그인</b></h1>
-      <br>
-      <input type="text" placeholder="아이디"/>
-      <input type="password" placeholder="패스워드"/>
-      <button>로그인</button>
-      <button>회원가입</button>
-    </form>
+	<div class="container">
+    <div id="image">
+      <img src="@/assets/chatjit_Logo.png" class="rounded mx-auto d-block" />           
+    </div>
+		<form>
+  <div class="row mb-3">
+    <label for="inputID" class="col-sm-2 col-form-label">ID</label>
+    <div class="col-sm-10">
+      <input type="id" class="form-control" id="inputID">
+    </div>
   </div>
-</div>
-</div>
+  <div class="row mb-3">
+    <label for="inputPW" class="col-sm-2 col-form-label">PW</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="inputPW">
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">로그인</button>
+</form>
+  </div>
+  <router-link to="/friendList">friendList</router-link> |
+  <router-link to="/chatList">chatList</router-link>
 </template>
-
-<style scoped>
-@import url(https://fonts.googleapis.com/css?family=Roboto:300);
-
-
-.login-page {
-  width: 360px;
-  padding: 22% 0 0;
-  margin: auto;
-  
-}
-.form {
-  position: relative;
-  z-index: 1;
-  background: #ffffffad;
-  max-width: 370px;
-  margin: 0 auto 100px;
-  padding: 45px;
-  text-align: center;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-}
-.form input {
-  font-family: "Roboto", sans-serif;
-  outline: 0;
-  background: #f2f2f2;
-  width: 100%;
-  border: 0;
-  margin: 0 0 15px;
-  padding: 15px;
-  box-sizing: border-box;
-  font-size: 14px;
-}
-.form button {
-  font-family: "Roboto", sans-serif;
-  text-transform: uppercase;
-  outline: 0;
-  background: #000000;
-  width: 100%;
-  border: 0;
-  padding: 15px;
-  color: #FFFFFF;
-  font-size: 14px;
-  -webkit-transition: all 0.3 ease;
-  transition: all 0.3 ease;
-  cursor: pointer;
-}
-.form button:hover,.form button:active,.form button:focus {
-  background: #263627;
-}
-
-.BackGround {
-  background-image: url("../assets/Logo.png");
-  
-  background-repeat: no-repeat;
-  background-position: top;
-  
-}
-
-</style>>
-
-
-
-
 <script>
-
+export default {
+    
+}
 </script>
