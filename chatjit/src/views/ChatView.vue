@@ -5,47 +5,46 @@
       <template v-slot:profilePic>그림</template>
       <template v-slot:chat-name>이름이 엄청 길어지면 잘되나</template>
     </base-chat-title>
-    <div class="chat-container" ref="messages">
+    <div class="chat-container" ref="message">
       <base-chat-box v-for="(chat, index) in chats" :key="index" :byWho="chat.byWho">{{ chat.chatText }}</base-chat-box>
     </div>
     <div class="chat-input">
-      <textarea v-model="newChat" @keyup.enter="sendMessage" placeholder="입력"></textarea>
-      <button @click="sendMessage">전송</button>
+      <textarea v-model="newChat" @keyup.enter="sendMessage(newChat)" placeholder="입력"></textarea>
+      <button @click="sendMessage(newChat)">전송</button>
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 // 스크롤 맨 밑으로 내리는 함수
-const scrollToBottom = (messages) => {
-  messages.scrollTop = messages.scrollHeight;
+const scrollToBottom = (message) => {
+  message.scrollTop = message.scrollHeight;
 };
 
 // 테스트용
 export default {
   data() {
     return {
-      chats: [
-        {
-          byWho: "you",
-          chatText: "니가 보낸 메세지",
-        },
-      ],
       newChat: "",
     };
   },
+  computed: {
+    ...mapGetters("messages", ["chats"]),
+  },
   methods: {
-    sendMessage() {
-      this.chats.push({ byWho: "me", chatText: this.newChat });
+    sendMessage(payload) {
+      this.$store.dispatch("messages/sendMessage", payload);
       this.newChat = "";
     },
   },
   // 스크롤 밑으로 내리기
   mounted() {
-    scrollToBottom(this.$refs.messages);
+    scrollToBottom(this.$refs.message);
   },
   updated() {
-    scrollToBottom(this.$refs.messages);
+    scrollToBottom(this.$refs.message);
   },
 };
 </script>
